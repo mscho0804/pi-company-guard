@@ -1,0 +1,35 @@
+{
+  "guard": {
+    "enabled": true,
+    "sensitivePaths": ["**/customer-data/**", "*.sqlite"],
+    "writeProtectedPaths": ["**/deploy/prod/**"],
+    "allowPaths": [],
+    "workspaceOnly": false,
+    "readOnlyHostPattern": "prod|prd",
+    "egressAllowedHosts": ["*.mycompany.com", "artifactory.mycompany.net"],
+    "nonInteractive": "block",
+    "redact": true,
+    "extraRedactPatterns": ["EMP-[0-9]{6}"],
+    "disabledRules": [],
+    "blockRules": ["git-force-push", "kubectl-mutate"]
+  },
+  "audit": {
+    "enabled": true,
+    "path": "~/.pi/agent/logs/company-guard-audit.jsonl"
+  },
+  "notify": {
+    "minDurationSec": 30,
+    "teams": {
+      "enabled": true,
+      "webhookUrlEnv": "PI_TEAMS_WEBHOOK_URL",
+      "timeoutSec": 10,
+      "title": "pi"
+    },
+    "terminal": {
+      "enabled": true,
+      "bell": true,
+      "osc": "off",
+      "title": true
+    }
+  }
+}

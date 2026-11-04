@@ -1,0 +1,33 @@
+{
+  "name": "pi-company-guard",
+  "version": "0.1.0",
+  "description": "Company guardrails (sensitive path blocking, dangerous command gate, secret redaction, audit log) and completion notifications (Teams webhook, terminal bell) for the pi coding agent.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "guardrail",
+    "security",
+    "teams"
+  ],
+  "pi": {
+    "extensions": [
+      "./extensions/guardrail.ts",
+      "./extensions/notify.ts"
+    ]
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "test": "node --test --experimental-strip-types --no-warnings \"test/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "^1.4.0",
+    "@earendil-works/pi-coding-agent": "^1.4.0",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}
